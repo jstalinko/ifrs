@@ -1,8 +1,10 @@
 <?php
 
-use App\Http\Controllers\AuthController;
-use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\AccountController;
+use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,8 +25,13 @@ Route::group(['middleware' => 'auth'] , function(){
     
     Route::get('/dashboard' ,[DashboardController::class , 'index'])->name('dashboard.index');
 
-    Route::get('/account',[DashboardController::class , 'account'])->name('dashboard.account');
-    Route::get('/account/create',[DashboardController::class , 'create'])->name('dashboard.account');
-    Route::post('/account/save',[DashboardController::class , 'store'])->name('dashboard.account');
+    // account
+    Route::get('/account',[AccountController::class , 'account'])->name('dashboard.account');
+    Route::get('/account/create',[AccountController::class , 'create'])->name('dashboard.account');
+    Route::post('/account/save',[AccountController::class , 'store'])->name('dashboard.account');
+
+    Route::get('/customer',[CustomerController::class , 'customer'])->name('dashboard.account');
+    Route::get('/customer/create',[CustomerController::class , 'create'])->name('dashboard.account');
+    Route::post('/customer/save',[CustomerController::class , 'store'])->name('dashboard.account');
     
 });

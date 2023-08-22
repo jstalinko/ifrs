@@ -2,26 +2,36 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\View\View;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
+use App\Models\Account;
 
-class DashboardController extends Controller
+
+
+class AccountController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index() :View
+    public function index()
     {
-        return view('dashboard');
+        //
     }
 
-    
+    public function account(): View
+    {
+        return view('accounts.account', [
+            'accounts' => \App\Models\Account::all()
+        ]);
+    }
 
     /**
      * Show the form for creating a new resource.
      */
     public function create()
     {
+        return view('accounts.create');
+
     }
 
     /**
@@ -29,7 +39,16 @@ class DashboardController extends Controller
      */
     public function store(Request $request)
     {
-        
+        // dd($request);
+        Account::create([
+            'account_number' => $request->account_number,
+            'account_name' => $request->account_name,
+            'account_type' => $request->account_type,
+            'account_balance' => $request->account_balance,
+            'account_description' => $request->account_description
+        ]);
+
+        return redirect('/account');
     }
 
     /**
