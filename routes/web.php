@@ -22,6 +22,9 @@ Route::post('/login' , [AuthController::class , 'authLogin'])->name('auth.login'
 Route::group(['middleware' => 'auth'] , function(){
     
     Route::get('/dashboard' ,[DashboardController::class , 'index'])->name('dashboard.index');
+
     Route::get('/account',[DashboardController::class , 'account'])->name('dashboard.account');
+    Route::get('/account/create',[DashboardController::class , 'create'])->name('dashboard.account');
+    Route::post('/account/save',[DashboardController::class , 'store'])->name('dashboard.account');
     
 });

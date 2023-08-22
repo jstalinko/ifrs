@@ -17,7 +17,13 @@ class JournalFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'journal_number' => $this->faker->unique()->name(),
+            'journal_type' => $this->faker->name(),
+            'journal_date' => $this->faker->name(),
+            'journal_reference' => $this->faker->name(),
+            'journal_description' => $this->faker->name(),
+            'debit_account' => $this->faker->name(),
+            'credit_account' => $this->faker->name()
         ];
     }
 }
