@@ -12,12 +12,7 @@ class CustomerController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {
-        //
-    }
-
-    public function customer(): View
+    public function index(): View
     {
         return view('customers.customer', [
             'customers' => Customer::all()

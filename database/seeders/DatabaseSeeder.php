@@ -9,6 +9,8 @@ use App\Models\Customer;
 use App\Models\Journal;
 use App\Models\Payment;
 use App\Models\Purchase;
+use App\Models\Receipt;
+use App\Models\Sale;
 use App\Models\Transaction;
 use Illuminate\Database\Seeder;
 
@@ -26,6 +28,8 @@ class DatabaseSeeder extends Seeder
         Purchase::factory(10)->create();
         Transaction::factory(10)->create();
         Payment::factory(10)->create();
+        Sale::factory(10)->create();
+        Receipt::factory(10)->create();
 
         \App\Models\User::factory()->create([
             'name' => 'Administrator',

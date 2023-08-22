@@ -12,12 +12,8 @@ class PurchaseController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {
-        //
-    }
 
-    public function purchase(): View
+    public function index(): View
     {
         return view('purchases.purchase', [
             'purchases' => Purchase::all()

@@ -13,15 +13,10 @@ class AccountController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {
-        //
-    }
-
-    public function account(): View
+    public function index(): View
     {
         return view('accounts.account', [
-            'accounts' => \App\Models\Account::all()
+            'accounts' => Account::all()
         ]);
     }
 

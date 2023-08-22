@@ -463,7 +463,7 @@
                                 <li><a href="/journal/all">Semua Jurnal</a></li>
                                 <li><a href="/transaction/sale">Penjualan Baru</a></li>
                                 <li><a href="/transaction/purchase">Pembelian Baru</a></li>
-                                <li><a href="/transaction/receipts">Kuitansi Baru</a></li>
+                                <li><a href="/transaction/receipt">Kuitansi Baru</a></li>
                                 <li><a href="/transaction/payment">Pembayaran Baru</a></li>
                                 <li><a href="/transaction/general">Umum Baru</a></li>
                                

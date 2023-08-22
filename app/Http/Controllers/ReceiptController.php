@@ -2,29 +2,31 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Journal;
+use App\Models\Receipt;
+use App\Models\Sale;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
 
-class JournalController extends Controller
+class ReceiptController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index(): View
     {
-        return view('journals.journal', [
-            'journals' => Journal::all()
+        return view('receipts.receipt', [
+            'receipts' => Receipt::all()
         ]);
     }
+
 
     /**
      * Show the form for creating a new resource.
      */
     public function create()
     {
-        return view('journals.create');
+        return view('receipts.create');
 
     }
 
@@ -34,18 +36,15 @@ class JournalController extends Controller
     public function store(Request $request)
     {
         // dd($request);
-        Journal::create([
-            'journal_number' => $request->journal_number,
-            'journal_type' => $request->journal_type,
-            'journal_date' => $request->journal_date,
-            'journal_reference' => $request->journal_reference,
-            'journal_description' => $request->journal_description,
-            'debit' => $request->debit,
-            'kredit' => $request->kredit
+        Receipt::create([
+            'customer_name' => $request->customer_name,
+            'description' => $request->description,
+            'receipted' => $request->receipted,
+            'discount' => $request->discount
             
         ]);
 
-        return redirect('/journal/general');
+        return redirect('/transaction/receipt');
     }
 
     /**
