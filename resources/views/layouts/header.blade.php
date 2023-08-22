@@ -465,7 +465,7 @@
                                 <li><a href="/transaction/purchase">Pembelian Baru</a></li>
                                 <li><a href="/transaction/receipts">Kuitansi Baru</a></li>
                                 <li><a href="/transaction/payment">Pembayaran Baru</a></li>
-                                <li><a href="/trasaction/general">Umum Baru</a></li>
+                                <li><a href="/transaction/general">Umum Baru</a></li>
                                
                             </ul>
                         </div>

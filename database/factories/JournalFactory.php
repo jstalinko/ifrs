@@ -22,8 +22,8 @@ class JournalFactory extends Factory
             'journal_date' => $this->faker->name(),
             'journal_reference' => $this->faker->name(),
             'journal_description' => $this->faker->name(),
-            'debit_account' => $this->faker->name(),
-            'credit_account' => $this->faker->name()
+            'debit' => $this->faker->name(),
+            'credit' => $this->faker->name()
         ];
     }
 }

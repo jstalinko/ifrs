@@ -7,6 +7,9 @@ namespace Database\Seeders;
 use App\Models\Account;
 use App\Models\Customer;
 use App\Models\Journal;
+use App\Models\Payment;
+use App\Models\Purchase;
+use App\Models\Transaction;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -20,6 +23,9 @@ class DatabaseSeeder extends Seeder
         Account::factory(10)->create();
         Customer::factory(10)->create();
         Journal::factory(10)->create();
+        Purchase::factory(10)->create();
+        Transaction::factory(10)->create();
+        Payment::factory(10)->create();
 
         \App\Models\User::factory()->create([
             'name' => 'Administrator',

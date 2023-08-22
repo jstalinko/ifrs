@@ -18,8 +18,8 @@ return new class extends Migration
             $table->string('journal_date');
             $table->string('journal_reference');
             $table->text('journal_description')->nullable();
-            $table->string('debit_account');
-            $table->string('credit_account');
+            $table->string('debit');
+            $table->string('credit');
             $table->timestamps();
         });
     }

@@ -3,8 +3,12 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AccountController;
+use App\Http\Controllers\JournalController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\PurchaseController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\TransactionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,9 +33,28 @@ Route::group(['middleware' => 'auth'] , function(){
     Route::get('/account',[AccountController::class , 'account'])->name('dashboard.account');
     Route::get('/account/create',[AccountController::class , 'create'])->name('dashboard.account');
     Route::post('/account/save',[AccountController::class , 'store'])->name('dashboard.account');
-
+    // customer
     Route::get('/customer',[CustomerController::class , 'customer'])->name('dashboard.account');
     Route::get('/customer/create',[CustomerController::class , 'create'])->name('dashboard.account');
     Route::post('/customer/save',[CustomerController::class , 'store'])->name('dashboard.account');
+
+    // journal
+    Route::get('/journal/general',[JournalController::class , 'journal'])->name('dashboard.account');
+    Route::get('/journal/general/create',[JournalController::class , 'create'])->name('dashboard.account');
+    Route::post('/journal/general/save',[JournalController::class , 'store'])->name('dashboard.account');
+
+    // purchase
+    Route::get('/transaction/purchase',[PurchaseController::class , 'purchase'])->name('dashboard.account');
+    Route::get('/transaction/purchase/create',[PurchaseController::class , 'create'])->name('dashboard.account');
+    Route::post('/transaction/purchase/save',[PurchaseController::class , 'store'])->name('dashboard.account');
     
+    // transaction
+    Route::get('/transaction/general',[TransactionController::class , 'index'])->name('dashboard.account');
+    Route::get('/transaction/general/create',[TransactionController::class , 'create'])->name('dashboard.account');
+    Route::post('/transaction/general/save',[TransactionController::class , 'store'])->name('dashboard.account');
+    
+    // payment
+    Route::get('/transaction/payment',[PaymentController::class , 'index'])->name('dashboard.account');
+    Route::get('/transaction/payment/create',[PaymentController::class , 'create'])->name('dashboard.account');
+    Route::post('/transaction/payment/save',[PaymentController::class , 'store'])->name('dashboard.account');
 });
