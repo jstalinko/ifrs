@@ -3,8 +3,9 @@
 
 @section('content')
 <main class="mn-inner inner-active-sidebar">
+   <div class="middle-content">
     <a href="/customer/create" class="waves-effect waves-light btn mb-4">Tambah Pelanggan</a>
-    <table class="striped">
+    <table class="striped hover border">
         <thead>
           <tr>
               <th>Nomor</th>
@@ -29,6 +30,7 @@
             </tbody>
             @endforeach
       </table>
+   </div>
 </main>
 
 @endsection

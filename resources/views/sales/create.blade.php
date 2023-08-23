@@ -7,8 +7,12 @@
           @csrf
           <div class="row">
             <div class="input-field col s12">
-              <input id="account_number" name="customer_name" type="text" class="validate">
-              <label for="account_number">nama pengguna</label>
+              <select name="customer_id" id="customer_id">
+                <option value="" disabled selected>Choose your option</option>
+                @foreach ($customers as $customer)
+                <option value="{{ $customer->id }}">{{ $customer->customer_name }}</option>
+                @endforeach
+              <label for="customer_id">Pelanggan </label>
             </div>
           </div>
           <div class="row">

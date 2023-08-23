@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Sale;
-use Illuminate\Http\Request;
+use App\Models\Customer;
 use Illuminate\View\View;
+use Illuminate\Http\Request;
 
 
 class SaleController extends Controller
@@ -25,7 +26,8 @@ class SaleController extends Controller
      */
     public function create()
     {
-        return view('sales.create');
+        $data['customers'] = Customer::all();
+        return view('sales.create' , $data);
 
     }
 
@@ -36,7 +38,7 @@ class SaleController extends Controller
     {
         // dd($request);
         Sale::create([
-            'customer_name' => $request->customer_name,
+            'customer_id' => $request->customer_id,
             'description' => $request->description,
             'sold' => $request->sold,
             'cost' => $request->cost

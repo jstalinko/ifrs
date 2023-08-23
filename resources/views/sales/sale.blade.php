@@ -17,7 +17,7 @@
         @foreach ($sales as $s)
         <tbody>
                 <tr>
-                    <th>{{ $s->customer_name }}</th>
+                    <th>( {{$s->customer?->customer_number}} ) {{ $s->customer?->customer_name }} </th>
                     <th>{{ $s->description}}</th>
                     <th>{{ $s->sold }}</th>
                     <th>{{ $s->cost }}</th>
