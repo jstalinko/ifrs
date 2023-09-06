@@ -2,31 +2,24 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Transaction;
 use Illuminate\Http\Request;
-use Illuminate\View\View;
 
-
-class TransactionController extends Controller
+class SupplierController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index(): View
+    public function index()
     {
-        return view('transactions.transaction', [
-            'transactions' => Transaction::all()
-        ]);
+        //
     }
-
 
     /**
      * Show the form for creating a new resource.
      */
     public function create()
     {
-        return view('transactions.create');
-
+        //
     }
 
     /**
@@ -34,15 +27,7 @@ class TransactionController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request);
-        Transaction::create([
-            'account_number' => $request->account_number,
-            'normal_balance' => $request->normal_balance,
-            'balance' => $request->balance
-            
-        ]);
-
-        return redirect('/transaction/general');
+        //
     }
 
     /**

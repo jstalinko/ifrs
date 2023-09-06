@@ -13,9 +13,13 @@ return new class extends Migration
     {
         Schema::create('purchases', function (Blueprint $table) {
             $table->id();
-            $table->string('creditor_name');
-            $table->string('description');
-            $table->string('purchased');
+            $table->string('invoice');
+            $table->integer('supplier_id')->nullable();
+            $table->integer('total');
+            $table->integer('discount')->nullable();
+            $table->integer('grand_total');
+            $table->enum('payment_status' , ['paid' , 'unpaid'])->default('unpaid');
+            $table->integer('category_id');
             $table->timestamps();
         });
     }

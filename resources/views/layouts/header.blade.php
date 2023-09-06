@@ -18,8 +18,9 @@
         <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">    
         <link href="{{asset('assets/plugins/metrojs/MetroJs.min.css')}}" rel="stylesheet">
         <link href="{{asset('assets/plugins/weather-icons-master/css/weather-icons.min.css')}}" rel="stylesheet">
-
-        	
+        <link href="{{asset('assets/plugins/datatables/css/jquery.dataTables.min.css')}}" rel="stylesheet">
+        <link href="{{asset('assets/plugins/sweetalert/sweetalert.css')}}" rel="stylesheet" type="text/css"/>   
+        <link href="{{asset('assets/plugins/select2/css/select2.css')}}" rel="stylesheet">            	
         <!-- Theme Styles -->
         <link href="{{asset('assets/css/alpha.min.css')}}" rel="stylesheet" type="text/css"/>
         <link href="{{asset('assets/css/custom.css')}}" rel="stylesheet" type="text/css"/>
@@ -31,6 +32,8 @@
         <script src="http://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js')}}"></script>
         <script src="http://oss.maxcdn.com/respond/1.4.2/respond.min.js')}}"></script>
         <![endif]-->
+
+        @yield('css')
         
     </head>
     <body>
@@ -452,20 +455,18 @@
                 <ul class="sidebar-menu collapsible collapsible-accordion" data-collapsible="accordion">
                     <li class="no-padding active"><a class="waves-effect waves-grey active" href="{{url('/dashboard')}}"><i class="material-icons">settings_input_svideo</i>Dashboard</a></li>
                  
-                    <li class="no-padding"><a class="waves-effect waves-grey" href="/account"><i class="material-icons">feed</i>Kelola Akun</a></li>
+                    
+                    <li class="no-padding"><a class="waves-effect waves-grey" href="/product"><i class="material-icons">shop</i>Kelola Produk</a></li>
                     <li class="no-padding"><a class="waves-effect waves-grey" href="/customer"><i class="material-icons">group</i>Kelola Pelanggan</a></li>
+                    <li class="no-padding"><a class="waves-effect waves-grey" href="/supplier"><i class="material-icons">person_pin</i>Kelola Supplier</a></li>
+                    <li class="no-padding"><a class="waves-effect waves-grey" href="/category"><i class="material-icons">label</i>Kelola Kategori</a></li>
                     
                     <li class="no-padding">
                         <a class="collapsible-header waves-effect waves-grey"><i class="material-icons">sync_alt</i>Transaksi<i class="nav-drop-icon material-icons">keyboard_arrow_right</i></a>
                         <div class="collapsible-body">
                             <ul>
-                                <li><a href="/journal/general">Jurnal Umum</a></li>
-                                <li><a href="/journal/all">Semua Jurnal</a></li>
-                                <li><a href="/transaction/sale">Penjualan Baru</a></li>
-                                <li><a href="/transaction/purchase">Pembelian Baru</a></li>
-                                <li><a href="/transaction/receipt">Kuitansi Baru</a></li>
-                                <li><a href="/transaction/payment">Pembayaran Baru</a></li>
-                                <li><a href="/transaction/general">Umum Baru</a></li>
+                                <li><a href="/order/create">Penjualan Baru</a></li>
+                                <li><a href="/purchase/create">Pembelian Baru</a></li>
                                
                             </ul>
                         </div>
@@ -474,9 +475,9 @@
                         <a class="collapsible-header waves-effect waves-grey"><i class="material-icons">assignment</i>Laporan<i class="nav-drop-icon material-icons">keyboard_arrow_right</i></a>
                         <div class="collapsible-body">
                             <ul>
-                                <li><a href="/journal/general">Laporan Pendapatan</a></li>
-                                <li><a href="/journal/all">Owner Equity</a></li>
-                                <li><a href="/transaction/sale">Financial Position</a></li>
+                                <li><a href="/report/in">Laporan Pendapatan</a></li>
+                                <li><a href="/report/out">Laporan Pengeluaran</a></li>
+                                <li><a href="/report/all">Laporan Umum</a></li>
 
                                
                             </ul>

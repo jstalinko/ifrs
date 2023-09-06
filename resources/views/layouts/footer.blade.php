@@ -27,8 +27,45 @@
 <script src="{{asset('assets/plugins/flot/jquery.flot.tooltip.min.js')}}"></script>
 <script src="{{asset('assets/plugins/curvedlines/curvedLines.js')}}"></script>
 <script src="{{asset('assets/plugins/peity/jquery.peity.min.js')}}"></script>
+<script src="{{asset('assets/plugins/datatables/js/jquery.dataTables.min.js')}}"></script>
+<script src="{{asset('assets/plugins/sweetalert/sweetalert.min.js')}}"></script>
+<script src="{{asset('assets/plugins/select2/js/select2.min.js')}}"></script>
 <script src="{{asset('assets/js/alpha.min.js')}}"></script>
-<script src="{{asset('assets/js/pages/dashboard.js')}}"></script>
+
+<script>
+      $('.select2-multi').select2({
+        placeholder: 'Pilih beberapa ...'
+    });
+
+    $('.select2').select2();
+
+    </script>
+@if(session('success'))
+<script>
+    swal({   
+    type: "success",
+    title: "Success !",   
+    text: "{{session('success')}}",   
+    timer: 1500,   
+    showConfirmButton: false 
+});
+</script>
+@endif
+
+@if(session('error'))
+<script>
+    swal({   
+    type: "error",
+    title: "Error !",   
+    text: "{{session('error')}}",   
+    timer: 1500,   
+    showConfirmButton: false 
+});
+</script>
+@endif
+
+
+@yield('js')
 
 </body>
 </html>
