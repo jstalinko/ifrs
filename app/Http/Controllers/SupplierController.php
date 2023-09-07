@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Models\Supplier;
+
 class SupplierController extends Controller
 {
     /**
@@ -35,7 +37,11 @@ class SupplierController extends Controller
      */
     public function show(string $id)
     {
-        //
+        // show the all suplier
+
+            $data['suppliers'] = Supplier::all();
+            return view('supplier.index' , $data);
+
     }
 
     /**
