@@ -49,7 +49,12 @@ class SupplierController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        // edit supplier
+        {
+            $data['isEdit'] = true;
+            $data['edit'] = Supplier::find($id);
+            return view('supplier.form' , $data);
+        }
     }
 
     /**
@@ -57,7 +62,15 @@ class SupplierController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        // update supplier id
+        $request->validate([
+            'code' => 'required|unique:suppliers,code,' . $id,
+            'name' => 'required',
+            'description' => 'nullable'
+        ]);
+
+        Supplier::find($id)->update($request->all());
+        return redirect()->route('supplier.index')->with('success' , 'Supplier updated successfully');
     }
 
     /**
@@ -65,6 +78,9 @@ class SupplierController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        // remove  suplier
+        Supplier::find($id)->delete();
+        return redirect()->route('supplier.index')->with('success' , 'Supplier deleted successfully');
+
     }
 }
