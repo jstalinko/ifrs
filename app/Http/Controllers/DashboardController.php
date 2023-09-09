@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Order;
+use App\Models\Purchase;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
 
@@ -12,7 +14,16 @@ class DashboardController extends Controller
      */
     public function index() :View
     {
-        return view('dashboard');
+        $data['totalomset']  = Order::where('payment_status' , 'paid')->sum('grand_total');
+        $data['totalpengeluaran'] = Purchase::where('payment_status' , 'paid')->sum('total');
+        $data['totallaba'] = ($data['totalomset'] - $data['totalpengeluaran']);
+
+        $data['omset_thismonth'] = Order::where('payment_status' , 'paid')->whereMonth('created_at' , date('m'))->sum('grand_total');
+        $data['pengeluaran_thismonth'] = Purchase::where('payment_status' , 'paid')->whereMonth('created_at' , date('m'))->sum('total');
+        $data['laba_thismonth'] = ($data['omset_thismonth'] - $data['pengeluaran_thismonth']);
+        
+        $data['recentorders'] = Order::orderBy('id','desc')->take(10)->get();
+        return view('dashboard' , $data);
     }
 
     

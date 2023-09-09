@@ -13,7 +13,9 @@ class SupplierController extends Controller
      */
     public function index()
     {
-        //
+        $data['suppliers'] = Supplier::all();
+        return view('supplier.index' , $data);
+
     }
 
     /**
@@ -21,7 +23,9 @@ class SupplierController extends Controller
      */
     public function create()
     {
-        //
+        $data['isEdit'] = false;
+        $data['edit'] = null;
+        return view('supplier.form' , $data);
     }
 
     /**

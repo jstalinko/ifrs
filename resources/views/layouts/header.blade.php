@@ -475,9 +475,9 @@
                         <a class="collapsible-header waves-effect waves-grey"><i class="material-icons">assignment</i>Laporan<i class="nav-drop-icon material-icons">keyboard_arrow_right</i></a>
                         <div class="collapsible-body">
                             <ul>
-                                <li><a href="/report/in">Laporan Pendapatan</a></li>
+                                <li><a href="/report/in">Laporan Pejualan</a></li>
                                 <li><a href="/report/out">Laporan Pengeluaran</a></li>
-                                <li><a href="/report/all">Laporan Umum</a></li>
+                                <li><a href="/report/all">Laporan Transaksi</a></li>
 
                                
                             </ul>
