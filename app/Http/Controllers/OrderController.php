@@ -10,6 +10,8 @@ class OrderController extends Controller
     {
         $data['isEdit'] = false;
         $data['edit'] = null;
+        $data['products'] = \App\Models\Product::all();
+        $data['customers'] = \App\Models\Customer::all();
         return view('order.form' , $data);
     }
 }

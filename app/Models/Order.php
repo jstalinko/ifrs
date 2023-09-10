@@ -13,4 +13,14 @@ class Order extends Model
     {
         return $this->belongsTo(Product::class , 'product_id');
     }
+
+    public function orderWhereBetween($from , $to)
+    {
+        return $this->whereBetween('created_at' , [$from , $to])->groupBy('invoice')->get();
+    }
+
+    public function orderGroupByInvoice()
+    {
+        return $this->orderBy('id' , 'desc')->groupBy('invoice')->get();
+    }
 }

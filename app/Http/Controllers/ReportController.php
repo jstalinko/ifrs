@@ -12,21 +12,20 @@ class ReportController extends Controller
     {
         
         if($request->from && $request->to){
-            $data['purchases'] = Purchase::whereBetween('created_at', [$request->from, $request->to])->get();
+            $data['purchases'] = Purchase::whereBetween('created_at', [$request->from, $request->to])->groupBy('invoice')->get();
         }else{
-            $data['purchases'] = Purchase::all();
+            $data['purchases'] = Purchase::orderBy('id','desc')->groupBy('invoice')->get();
         }
         return view('report.purchase' , $data);
     }
 
     public function orders(Request $request)
     {
-        // if($request->from !== '' && $request->to !== ''){
-        //     $data['orders'] = Order::whereBetween('created_at', [$request->from, $request->to])->get();
-        // }else{
-        //     $data['orders'] = Order::all();
-        // }
-        $data['orders'] = Order::all();
+        if(isset($request->from) && isset($request->to)){
+            $data['orders'] = Order::whereBetween('created_at', [$request->from, $request->to])->orderBy('id' , 'desc')->get();
+        }else{
+            $data['orders'] = Order::orderBy('id','desc')->get();
+        }
 
         return view('report.order' , $data);
     }

@@ -31,6 +31,7 @@
 <script src="{{asset('assets/plugins/sweetalert/sweetalert.min.js')}}"></script>
 <script src="{{asset('assets/plugins/select2/js/select2.min.js')}}"></script>
 <script src="{{asset('assets/js/alpha.min.js')}}"></script>
+@yield('js')
 
 <script>
       $('.select2-multi').select2({
@@ -65,7 +66,7 @@
 @endif
 
 
-@yield('js')
+
 
 </body>
 </html>
