@@ -28,7 +28,11 @@ class CategoryController extends Controller
             'description' => 'nullable'
         ]);
 
-        Category::create($request->all());
+        $cat = new Category();
+        $cat->code = $request->code;
+        $cat->name = $request->name;
+        $cat->description = $request->description;
+        $cat->save();
         return redirect()->route('category.index')->with('success' , 'Category created successfully');
     }
 
@@ -46,11 +50,15 @@ class CategoryController extends Controller
             'description' => 'nullable'
         ]);
 
-        Category::find($id)->update($request->all());
+        $cat = Category::find($id);
+        $cat->code = $request->code;
+        $cat->name = $request->name;
+        $cat->description = $request->description;
+        $cat->save();
         return redirect()->route('category.index')->with('success' , 'Category updated successfully');
     }
 
-    public function delete($id)
+    public function destroy($id)
     {
         Category::find($id)->delete();
         return redirect()->route('category.index')->with('success' , 'Category deleted successfully');

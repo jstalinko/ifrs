@@ -17,6 +17,7 @@ return new class extends Migration
             $table->integer('customer_id')->nullable();
             $table->integer('total');
             $table->integer('discount')->nullable();
+            $table->integer('qty');
             $table->integer('grand_total');
             $table->enum('payment_status' , ['paid' , 'unpaid'])->default('unpaid');
             $table->integer('product_id');

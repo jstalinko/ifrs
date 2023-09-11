@@ -12,9 +12,9 @@ class ReportController extends Controller
     {
         
         if($request->from && $request->to){
-            $data['purchases'] = Purchase::whereBetween('created_at', [$request->from, $request->to])->groupBy('invoice')->get();
+            $data['purchases'] = Purchase::whereBetween('created_at', [$request->from, $request->to])->orderBy('id','desc')->get();
         }else{
-            $data['purchases'] = Purchase::orderBy('id','desc')->groupBy('invoice')->get();
+            $data['purchases'] = Purchase::orderBy('id','desc')->orderBy('id','desc')->get();
         }
         return view('report.purchase' , $data);
     }
@@ -33,8 +33,8 @@ class ReportController extends Controller
     public function transactions(Request $request)
     {
         if($request->from && $request->to){
-            $data['orders'] = Order::whereBetween('created_at', [$request->from, $request->to])->get();
-            $data['purchases'] = Purchase::whereBetween('created_at', [$request->from, $request->to])->get();
+            $data['orders'] = Order::whereBetween('created_at', [$request->from, $request->to])->orderBy('id','desc')->get();
+            $data['purchases'] = Purchase::whereBetween('created_at', [$request->from, $request->to])->orderBy('id','desc')->get();
         }else{
             $data['orders'] = Order::all();
             $data['purchases'] = Purchase::all();

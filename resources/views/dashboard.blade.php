@@ -95,15 +95,15 @@
                             <div class="card">
                                 <div class="card-content">
                                     <span class="card-title">Shortcut button</span>
-                                    <a class="waves-effect waves-grey btn white m-b-xs">
+                                    <a class="waves-effect waves-grey btn white m-b-xs" href="/order/create">
                                         <i class="material-icons left">add</i>
                                         <span class="btn-text">Penjualan baru</span>
                                     </a>
-                                    <a class="waves-effect waves-light btn indigo m-b-xs">
+                                    <a class="waves-effect waves-light btn indigo m-b-xs" href="/customer/create">
                                         <i class="material-icons left">add</i>
                                         <span class="btn-text">Pelanggan baru</span>
                                     </a>
-                                    <a class="waves-effect waves-light btn pink m-b-xs">
+                                    <a class="waves-effect waves-light btn pink m-b-xs" href="/purchase/create">
                                         <i class="material-icons left">add</i>
                                         <span class="btn-text">Pengeluaran baru</span>
                                     </a>

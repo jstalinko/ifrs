@@ -6,19 +6,31 @@
     <div class="m-l-2">
         <div class="card">
             <!-- datepicker -->
-            <div class="row">
-                <div class="col m6">
-                    
-                </div>
-                <div class="col m6">
-
-                </div>
-            </div>
+            
 
             <div class="card-content">
                 <span class="card-title">
                     Laporan penjualan
                 </span>
+                <form method="GET" action="/report/in">
+                    @csrf
+                <div class="row">
+                    <div class="col m3">
+                        <h6> Filter laporan </h6>
+                    </div>
+                    <div class="col m3">
+                        <label for="from">Filter dari tanggal</label>
+                        <input id="from" name="from" type="date" class="datepicker required">
+                    </div>
+                    <div class="col m3">
+                        <label for="to">Ke tanggal</label>
+                        <input id="to" name="to" type="date" class="datepicker required">
+                    </div>
+                    <div class="col m3">
+                        <button role="button" type="submit"  class="waves-effect waves-light btn m-b-lg">Filter</button>
+                    </div>
+                </div>
+                </form>
 
                 <table class="table striped hover border">
                     <thead>
@@ -26,7 +38,7 @@
                         Invoice 
                         </th>   
                         <th>
-                        Produk
+                        Produk detail
                         </th> 
                         <th>
                         Pelanggan
@@ -48,7 +60,12 @@
                                 <a href="/order/{{$or->invoice}}">{{$or->invoice}}</a>
                             </td>
                             <td>
-                                {{$or->product?->name}}
+                                @php
+                                    $products = \App\Models\Order::where('invoice', $or->invoice)->get();
+                                @endphp
+                                @foreach($products as $product)
+                                <li>{{$product->product?->name}} ({{$product->qty}})</li>
+                                @endforeach
                             </td>
                             <td>
                                 {{$or->customer?->name ?? 'Pelanggan'}}
@@ -60,7 +77,7 @@
                                 {{Helper::rupiah($or->total)}}
                             </td>
                             <td>
-                                {{$or->created_at->diffForHumans()}}
+                                {{$or->created_at}}
                             </td>
                         </tr>
                         @endforeach
@@ -78,10 +95,12 @@
 @section('js')
 <script>
 
-  document.addEventListener('DOMContentLoaded', function() {
-    var elems = document.querySelectorAll('.datepicker');
-    var instances = M.Datepicker.init(elems, options);
-  });
+$('.datepicker').pickadate({
+        selectMonths: true, // Creates a dropdown to control month
+        selectYears: 15, // Creates a dropdown of 15 years to control year,
+        autoClose:true,
+        format:'yyyy-mm-dd 00:00'
+    });
 
 </script>
 @endsection

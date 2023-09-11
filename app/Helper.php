@@ -5,13 +5,19 @@ Class Helper
     {
         $code = '';
         if ($type == 'product') {
-            $code = 'PRD' . date('YmdHis');
+            $code = 'PRD' . strtoupper(substr(md5(date('YmdHis').time().rand()),0,6));
         } elseif ($type == 'supplier') {
-            $code = 'SUP' . date('YmdHis');
+            $code = 'SUP' . strtoupper(substr(md5(date('YmdHis').time().rand()),0,6));
         } elseif ($type == 'customer') {
-            $code = 'CST' . date('YmdHis');
+            $code = 'CST' . strtoupper(substr(md5(date('YmdHis').time().rand()),0,6));
         } elseif ($type == 'order') {
-            $code = 'ORD' . date('YmdHis');
+            $code = 'ORD' . strtoupper(substr(md5(date('YmdHis').time().rand()),0,6));
+        }elseif($type == 'category')
+        {
+            $code = 'CTG' . strtoupper(substr(md5(date('YmdHis').time().rand()),0,6));
+        }elseif($type == 'invoice')
+        {
+            $code = 'INV' . strtoupper(substr(md5(date('YmdHis').time().rand()),0,6));
         }
         return $code;
     }

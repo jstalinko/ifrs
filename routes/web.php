@@ -8,6 +8,7 @@ use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\PurchaseController;
 use App\Http\Controllers\ReportController;
 
 /*
@@ -68,6 +69,8 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/order/create' , [OrderController::class , 'create'])->name('order.create');
     Route::post('/order/store',[OrderController::class , 'store'])->name('order.store');
+    Route::get('/purchase/create' , [PurchaseController::class , 'create'])->name('purchase.create');
+    Route::post('/purchase/store',[PurchaseController::class , 'store'])->name('purchase.store');
 
     Route::group(['prefix' => '/report'] , function()
     {

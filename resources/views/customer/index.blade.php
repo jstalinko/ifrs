@@ -10,7 +10,7 @@
                 <div class="card-title">
                     <h3>Kelola Pelanggan</h3>
                 </div>
-                <a href="/category/create" class="waves-effect waves-light btn m-b-lg"><i class="material-icons left">add</i> Tambah kategori</a>
+                <a href="/customer/create" class="waves-effect waves-light btn m-b-lg"><i class="material-icons left">add</i> Tambah kategori</a>
                 <table class="display responsive-table  datatable">
                     <thead>
                       <tr>

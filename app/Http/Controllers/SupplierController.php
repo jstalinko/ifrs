@@ -33,7 +33,17 @@ class SupplierController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      
+        $sup = new Supplier();
+        $sup->supplier_number = $request->supplier_number;
+        $sup->supplier_name = $request->supplier_name;
+        $sup->supplier_address = $request->supplier_address;
+        $sup->supplier_phone = $request->supplier_phone;
+        $sup->supplier_email = $request->supplier_email;
+        $sup->supplier_description = $request->supplier_description;
+        $sup->save();
+
+        return redirect('/supplier')->with('success' , 'Data berhasil disimpan');
     }
 
     /**
@@ -54,11 +64,11 @@ class SupplierController extends Controller
     public function edit(string $id)
     {
         // edit supplier
-        {
+        
             $data['isEdit'] = true;
             $data['edit'] = Supplier::find($id);
             return view('supplier.form' , $data);
-        }
+        
     }
 
     /**
@@ -67,13 +77,15 @@ class SupplierController extends Controller
     public function update(Request $request, string $id)
     {
         // update supplier id
-        $request->validate([
-            'code' => 'required|unique:suppliers,code,' . $id,
-            'name' => 'required',
-            'description' => 'nullable'
-        ]);
+        $sup = Supplier::find($id);
+        
+        $sup->supplier_name = $request->supplier_name;
+        $sup->supplier_address = $request->supplier_address;
+        $sup->supplier_phone = $request->supplier_phone;
+        $sup->supplier_email = $request->supplier_email;
+        $sup->supplier_description = $request->supplier_description;
+        $sup->save();
 
-        Supplier::find($id)->update($request->all());
         return redirect()->route('supplier.index')->with('success' , 'Supplier updated successfully');
     }
 

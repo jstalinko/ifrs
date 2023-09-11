@@ -32,6 +32,11 @@
                         </div>
                     </div>
 
+                  
+                    <button type="submit" class="waves-effect waves-light btn green">
+                        <i class="material-icons left">save</i>
+                        Simpan</button>
+
                 </form>
             </div>
 
