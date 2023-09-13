@@ -22,9 +22,9 @@ class ReportController extends Controller
     public function orders(Request $request)
     {
         if(isset($request->from) && isset($request->to)){
-            $data['orders'] = Order::whereBetween('created_at', [$request->from, $request->to])->orderBy('id' , 'desc')->get();
+            $data['orders'] = Order::whereBetween('created_at', [$request->from, $request->to])->groupBy('invoice')->orderBy('id' , 'desc')->get();
         }else{
-            $data['orders'] = Order::orderBy('id','desc')->get();
+            $data['orders'] = Order::orderBy('id','desc')->groupBy('invoice')->get();
         }
 
         return view('report.order' , $data);

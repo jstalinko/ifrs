@@ -177,12 +177,12 @@
                     </div>
                 </div>
                 <div class="inner-sidebar">
-                    <span class="inner-sidebar-title">Order Terbaru</span>
+                    {{-- <span class="inner-sidebar-title">Order Terbaru</span>
                     <div class="message-list">
                     <div class="info-item message-item"><img class="circle" src="{{asset('assets/images/profile-image-2.png')}}" alt=""><div class="message-info"><div class="message-author">Ned Flanders</div><small>3 hours ago</small></div></div>
                     <div class="info-item message-item"><img class="circle" src="{{asset('assets/images/profile-image.png')}}" alt=""><div class="message-info"><div class="message-author">Peter Griffin</div><small>4 hours ago</small></div></div>
                     <div class="info-item message-item"><img class="circle" src="{{asset('assets/images/profile-image-1.png')}}" alt=""><div class="message-info"><div class="message-author">Lisa Simpson</div><small>2 days ago</small></div></div>
-                    </div>
+                    </div> --}}
                    
                 </div>
             </main>

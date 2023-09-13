@@ -46,6 +46,11 @@
                                     <span x-text="grandtotal()"></span>
                                 </td>
                             </tr>
+                            <tr>
+                                <td colspan="4" style="text-align: right;">
+                                    <a href="#submit" role="button" type="button"  class="waves-effect waves-light btn modal-trigger" >Buat penjualan</a>
+                                </td>
+                            </tr>
                         </tfoot>
                     </table>
 
@@ -90,6 +95,39 @@
       <a href="#!" class="modal-close waves-effect waves-red btn-flat">Close</a>
     </div>
   </div>
+     <!-- Modal Structure -->
+ <div id="submit" class="modal">
+    <div class="modal-content">
+      <h4>Konfirmasi</h4>
+      <form method="POST" >
+        <div class="row">
+            <div class="input-field col s12">
+                <select name="customer_id" id="customer_id" class="validate">
+                    <option value="" disabled >Pilih Pelanggan</option>
+                    <option value="">Non-Member ( Pelanggan )</option>
+                    @foreach (\App\Models\Customer::all() as $cat)
+                    <option value="{{$cat->customer_name}}" >{{$cat->customer_name}}</option>
+                    @endforeach
+                </select>
+                <label for="supplier">Pelanggan</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <select name="payment_status" id="payment_status" class="validate">
+                    <option value="" disabled >Pilih Kategori</option>
+                    <option value="paid" >  LUNAS</option>
+                    <option value="unpaid" > BELUM LUNAS</option>
+                </select>
+                <label for="payment_status">Status Bayar</label>
+            </div>
+        </div>
+      <button role="button" type="button" class="waves-effect waves-light btn" @click="addOrder"> Konfirmasi </button>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-close waves-effect waves-red btn-flat">Close</a>
+    </div>
+  </div>
 
 
 </main>
@@ -127,6 +165,10 @@
                 });
 
                 
+            },
+            addOrder()
+            {
+                console.log(this.products)
             },
             grandtotal()
             {

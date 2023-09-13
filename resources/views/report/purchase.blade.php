@@ -6,30 +6,41 @@
     <div class="m-l-2">
         <div class="card">
             <!-- datepicker -->
+            <form method="GET" action="/report/out">
+                @csrf
             <div class="row">
-                <div class="col m6">
-                    
+                <div class="col m3">
+                    <h6> Filter laporan </h6>
                 </div>
-                <div class="col m6">
-
+                <div class="col m3">
+                    <label for="from">Filter dari tanggal</label>
+                    <input id="from" name="from" type="date" class="datepicker required">
+                </div>
+                <div class="col m3">
+                    <label for="to">Ke tanggal</label>
+                    <input id="to" name="to" type="date" class="datepicker required">
+                </div>
+                <div class="col m3">
+                    <button role="button" type="submit"  class="waves-effect waves-light btn m-b-lg">Filter</button>
                 </div>
             </div>
+            </form>
 
             <div class="card-content">
                 <span class="card-title">
-                    Laporan penjualan
+                    Laporan pembelian
                 </span>
-
+             
                 <table class="table striped hover border">
                     <thead>
                         <th>
                         Invoice 
                         </th>   
                         <th>
-                        Produk detail
+                            Supplier
                         </th> 
                         <th>
-                        Pelanggan
+                            Kategori
                         </th>    
                         <th>
                         Status
@@ -45,18 +56,13 @@
                         @foreach($purchases as $or)
                         <tr>
                             <td>
-                                <a href="/order/{{$or->invoice}}">{{$or->invoice}}</a>
+                                <a href="/purchase/{{$or->invoice}}">{{$or->invoice}}</a>
                             </td>
                             <td>
-                                @php
-                                    $products = \App\Models\Order::where('invoice', $or->invoice)->get();
-                                @endphp
-                                @foreach($products as $product)
-                                <li>{{$product->product?->name}} ({{$product->qty}})</li>
-                                @endforeach
+                             {{$or?->supplier?->supplier_name ?? 'Tidak ada nama'}}
                             </td>
                             <td>
-                                {{$or->customer?->name ?? 'Pelanggan'}}
+                                {{$or->category?->name}}
                             </td>
                             <td>
                                 {!! Helper::orderstatus($or->payment_status) !!}

@@ -20,6 +20,7 @@ return new class extends Migration
             $table->integer('grand_total');
             $table->enum('payment_status' , ['paid' , 'unpaid'])->default('unpaid');
             $table->integer('category_id');
+            $table->text('description')->nullable();
             $table->timestamps();
         });
     }

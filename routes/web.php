@@ -76,6 +76,8 @@ Route::group(['middleware' => 'auth'], function () {
     {
         Route::get('/in' , [ReportController::class , 'orders'])->name('report.order');
         Route::get('/out' , [ReportController::class , 'purchases'])->name('report.purchase');
-        Route::get('/transaction' , [ReportController::class , 'transactions'])->name('report.transaction');
+        Route::get('/all' , [ReportController::class , 'transactions'])->name('report.transaction');
+        
     });
 });
+
