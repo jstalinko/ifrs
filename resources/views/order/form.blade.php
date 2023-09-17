@@ -168,7 +168,30 @@
             },
             addOrder()
             {
-                console.log(this.products)
+                var token = "{{ csrf_token() }}";
+                fetch('/api/add-product', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json',
+                        'X-CSRF-TOKEN': token
+                    },
+                    body: JSON.stringify({
+                        _token: token,
+                        order: this.products,
+                        customer_id: document.querySelector('#customer_id').value,
+                        payment_status: document.querySelector('#payment_status').value,
+                        grand_total: this.grandtotal(),
+                    })
+                }).then(res => res.json())
+                .then(res => {
+                    if(res.success > 0)
+                    {
+                        alert('Data berhasil disimpan');
+                    }else{
+                        alert('Data gagal di simpan');
+                    }
+                });
             },
             grandtotal()
             {

@@ -60,12 +60,14 @@
                                 <a href="/order/{{$or->invoice}}">{{$or->invoice}}</a>
                             </td>
                             <td>
+                                
                                 @php
                                     $products = \App\Models\Order::where('invoice', $or->invoice)->get();
                                 @endphp
                                 @foreach($products as $product)
                                 <li>{{$product->product?->name}} ({{$product->qty}})</li>
                                 @endforeach
+                                
                             </td>
                             <td>
                                 {{$or->customer?->name ?? 'Pelanggan'}}
@@ -74,7 +76,7 @@
                                 {!! Helper::orderstatus($or->payment_status) !!}
                             </td>
                             <td>
-                                {{Helper::rupiah($or->total)}}
+                                {{Helper::rupiah($or->grand_total)}}
                             </td>
                             <td>
                                 {{$or->created_at}}
