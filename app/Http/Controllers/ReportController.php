@@ -13,9 +13,9 @@ class ReportController extends Controller
     {
         
         if($request->from && $request->to){
-            $data['purchases'] = Purchase::whereBetween('created_at', [$request->from, $request->to])->orderBy('id','desc')->get();
+            $data['purchases'] = Purchase::where('payment_status','paid')->whereBetween('created_at', [$request->from, $request->to])->orderBy('id','desc')->get();
         }else{
-            $data['purchases'] = Purchase::orderBy('id','desc')->orderBy('id','desc')->get();
+            $data['purchases'] = Purchase::where('payment_status','paid')->orderBy('id','desc')->orderBy('id','desc')->get();
         }
         return view('report.purchase' , $data);
     }
@@ -23,9 +23,9 @@ class ReportController extends Controller
     public function orders(Request $request)
     {
         if(isset($request->from) && isset($request->to)){
-            $data['orders'] = Order::whereBetween('created_at', [$request->from, $request->to])->groupBy('invoice')->orderBy('id' , 'desc')->get();
+            $data['orders'] = Order::where('payment_status','paid')->whereBetween('created_at', [$request->from, $request->to])->groupBy('invoice')->orderBy('id' , 'desc')->get();
         }else{
-            $data['orders'] = Order::orderBy('id','desc')->groupBy('invoice')->get();
+            $data['orders'] = Order::where('payment_status','paid')->orderBy('id','desc')->groupBy('invoice')->get();
         }
 
         return view('report.order' , $data);
@@ -55,9 +55,9 @@ class ReportController extends Controller
             if($type == 'order')
             {
                 if($from && $to){
-                    $data['orders'] = Order::whereBetween('created_at', [$from, $to])->groupBy('invoice')->orderBy('id' , 'desc')->get();
+                    $data['orders'] = Order::where('payment_status','paid')->whereBetween('created_at', [$from, $to])->groupBy('invoice')->orderBy('id' , 'desc')->get();
                 }else{
-                    $data['orders'] = Order::orderBy('id','desc')->groupBy('invoice')->get();
+                    $data['orders'] = Order::where('payment_status','paid')->orderBy('id','desc')->groupBy('invoice')->get();
                 }
                 $data['from'] = ($from ?? 'semua');
                 $data['to'] = ($to ?? 'semua');
@@ -67,9 +67,9 @@ class ReportController extends Controller
             elseif($type == 'purchase')
             {
                 if($from && $to){
-                    $data['purchases'] = Purchase::whereBetween('created_at', [$from, $to])->orderBy('id','desc')->get();
+                    $data['purchases'] = Purchase::where('payment_status','paid')->whereBetween('created_at', [$from, $to])->orderBy('id','desc')->get();
                 }else{
-                    $data['purchases'] = Purchase::orderBy('id','desc')->get();
+                    $data['purchases'] = Purchase::where('payment_status','paid')->orderBy('id','desc')->get();
                 }
                 $data['from'] = ($from ?? 'semua');
                 $data['to'] = ($to ?? 'semua');

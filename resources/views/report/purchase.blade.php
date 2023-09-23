@@ -71,7 +71,7 @@
                                 {!! Helper::orderstatus($or->payment_status) !!}
                             </td>
                             <td>
-                                {{Helper::rupiah($or->total)}}
+                                {{Helper::rupiah($or->grand_total)}}
                             </td>
                             <td>
                                 {{$or->created_at}}

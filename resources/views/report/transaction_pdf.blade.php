@@ -7,7 +7,7 @@
         <h3> Filter dari tanggal {{$from}} ke tanggal {{$to}} </h3>
         <hr>
         <hr>
-        <table class="table striped hover border">
+        <table style="width:100%;border:1px solid #000;border-collapse: collapse">
             <thead>
                 <th>
                 Tanggal 
@@ -50,7 +50,7 @@
                     {{Helper::rupiah($o->grand_total) }}
                 </td>
                 <td>
-                    @if($i->payment_status == 'paid')
+                    @if($o->payment_status == 'paid')
                     <b><font color="green">LUNAS</font></b>
                 @endif
                 </td>

@@ -109,7 +109,7 @@
                                     {{Helper::rupiah( $i->grand_total) }}
                                 </td>
                                 <td>
-                                    @if($i->payment_status == 'paid')
+                                    @if($o->payment_status == 'paid')
                                         <b><font color="green">LUNAS</font></b>
                                     @endif
                                 </td>
