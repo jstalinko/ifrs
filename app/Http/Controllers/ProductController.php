@@ -118,7 +118,13 @@ class ProductController extends Controller
             $success++;
 
             $p = Product::find($pro['product_id']);
-            $p->stock = $p->stock - $pro['qty'];
+            if($p->stock - $pro['qty'] < 1)
+            {
+                $stuk = 1;
+            }else{
+                $stuk = $p->stock - $pro['qty'];
+            }
+            $p->stock = $stuk;
             $p->save();
         }
 

@@ -106,7 +106,7 @@
                     <option value="" disabled >Pilih Pelanggan</option>
                     <option value="">Non-Member ( Pelanggan )</option>
                     @foreach (\App\Models\Customer::all() as $cat)
-                    <option value="{{$cat->customer_name}}" >{{$cat->customer_name}}</option>
+                    <option value="{{$cat->id}}" >{{$cat->customer_name}}</option>
                     @endforeach
                 </select>
                 <label for="supplier">Pelanggan</label>
