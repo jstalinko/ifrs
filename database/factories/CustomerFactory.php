@@ -3,7 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-
+use Helper;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Customer>
  */
@@ -16,13 +16,17 @@ class CustomerFactory extends Factory
      */
     public function definition(): array
     {
+        //faker locale ID $table->string('customer_number')->unique();
+            
+        $faker = \Faker\Factory::create('id_ID');
+
         return [
-            'customer_number' => $this->faker->unique()->name(),
-            'customer_name' => $this->faker->unique()->name(),
-            'customer_name' => $this->faker->name(),
-            'customer_address' => $this->faker->name(),
-            'customer_phone' => $this->faker->name(),
-            'customer_email' => $this->faker->unique()->safeEmail(),
+            'customer_number' => Helper::genCode('customer'),
+            'customer_name' => $faker->name(),
+            'customer_address' => $faker->address(),
+            'customer_phone' => $faker->phoneNumber(),
+            'customer_email' => $faker->email(),
+            'customer_description' => 'Pengguna ' . $faker->name(),
         ];
     }
 }

@@ -188,6 +188,7 @@
                     if(res.success > 0)
                     {
                         alert('Data berhasil disimpan');
+                        window.location.href='/dashboard';
                     }else{
                         alert('Data gagal di simpan');
                     }

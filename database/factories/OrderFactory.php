@@ -15,15 +15,24 @@ class OrderFactory extends Factory
      */
     public function definition(): array
     {
+        $inv = [
+            'INV'.strtoupper('TEST1'),
+            'INV'.strtoupper('TEST2'),
+            'INV'.strtoupper('TEST3'),
+            'INV'.strtoupper('TEST4'),
+            'INV'.strtoupper('TEST5'),
+        ];
+        shuffle($inv);
         return [
-            'invoice' => Helper::genCode('invoice'),
+            'invoice' => $inv[0],
             'customer_id' => rand(1,10),
-            'total' => $this->faker->randomNumber(),
-            'discount' => $this->faker->randomNumber(),
-            'grand_total' => $this->faker->randomNumber(),
+            'total' => rand(1000000,10000000000),
+            'discount' => 0,
+            'grand_total' => rand(100000,10000000),
             'payment_status' => $this->faker->randomElement(['paid' , 'unpaid']),
             'product_id' => rand(1,4),
-            'qty' => 1
+            'qty' => 1,
+            'created_at' => $this->faker->dateTimeBetween('-1 month', 'now')
         ];
     }
 }

@@ -22,6 +22,9 @@
                 </div>
                 <div class="col m3">
                     <button role="button" type="submit"  class="waves-effect waves-light btn m-b-lg">Filter</button>
+                    <a href="/report/print?type=purchase" class="waves-effect waves-light btn red m-b-lg">Print PDF</a>
+
+                    
                 </div>
             </div>
             </form>
@@ -56,7 +59,7 @@
                         @foreach($purchases as $or)
                         <tr>
                             <td>
-                                <a href="/purchase/{{$or->invoice}}">{{$or->invoice}}</a>
+                                <a href="#">{{$or->invoice}}</a>
                             </td>
                             <td>
                              {{$or?->supplier?->supplier_name ?? 'Tidak ada nama'}}
@@ -71,7 +74,7 @@
                                 {{Helper::rupiah($or->total)}}
                             </td>
                             <td>
-                                {{$or->created_at->diffForHumans()}}
+                                {{$or->created_at}}
                             </td>
                         </tr>
                         @endforeach
@@ -89,10 +92,12 @@
 @section('js')
 <script>
 
-  document.addEventListener('DOMContentLoaded', function() {
-    var elems = document.querySelectorAll('.datepicker');
-    var instances = M.Datepicker.init(elems, options);
-  });
+$('.datepicker').pickadate({
+        selectMonths: true, // Creates a dropdown to control month
+        selectYears: 15, // Creates a dropdown of 15 years to control year,
+        autoClose:true,
+        format:'yyyy-mm-dd 00:00'
+    });
 
 </script>
 @endsection

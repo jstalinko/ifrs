@@ -75,6 +75,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::group(['prefix' => '/report'] , function()
     {
         Route::get('/in' , [ReportController::class , 'orders'])->name('report.order');
+        Route::get('/print' , [ReportController::class , 'printPdf'])->name('report.print');
         Route::get('/out' , [ReportController::class , 'purchases'])->name('report.purchase');
         Route::get('/all' , [ReportController::class , 'transactions'])->name('report.transaction');
         

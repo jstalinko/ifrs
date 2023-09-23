@@ -22,14 +22,13 @@ class CategorySeeder extends Seeder
             ],
             [
                 'code' => Helper::genCode('category'),
-                'name' => 'Food',
-                'description' => 'Food'
-
+                'name' => 'Minuman',
+                'description' => 'Minuman'
             ],
             [
                 'code' => Helper::genCode('category'),
-                'name' => 'Drink',
-                'description' => 'Drink'
+                'name' => 'Makanan',
+                'description' => 'Makanan'
             ],
             [
                 'code' => Helper::genCode('category'),
@@ -38,75 +37,15 @@ class CategorySeeder extends Seeder
             ],
             [
                 'code' => Helper::genCode('category'),
-                'name' => 'Dessert',
-                'description' => 'Dessert'
+                'name' => 'Peralatan',
+                'description' => 'Peralatan'
             ],
             [
                 'code' => Helper::genCode('category'),
-                'name' => 'Fruit',
-                'description' => 'Fruit'
+                'name' => 'Lainnya',
+                'description' => 'Lainnya'
             ],
-            [
-                'code' => Helper::genCode('category'),
-                'name' => 'Vegetable',
-                'description' => 'Vegetable'
-            ],
-            [
-                'code' => Helper::genCode('category'),
-                'name' => 'Meat',
-                'description' => 'Meat'
-            ],
-            [
-                'code' => Helper::genCode('category'),
-                'name' => 'Fish',
-                'description' => 'Fish'
-            ],
-            [
-                'code' => Helper::genCode('category'),
-                'name' => 'Chicken',
-                'description' => 'Chicken'
-            ],
-            [
-                'code' => Helper::genCode('category'),
-                'name' => 'Beef',
-                'description' => 'Beef'
-            ],
-            [
-                'code' => Helper::genCode('category'),
-                'name' => 'Pork',
-                'description' => 'Pork'
-            ],
-            [
-                'code' => Helper::genCode('category'),
-                'name' => 'Seafood',
-                'description' => 'Seafood'
-            ],
-            [
-                'code' => Helper::genCode('category'),
-                'name' => 'Bread',
-                'description' => 'Bread'
-            ],
-            [
-                'code' => Helper::genCode('category'),
-                'name' => 'Cake',
-                'description' => 'Cake'
-            ],
-            [
-                'code' => Helper::genCode('category'),
-                'name' => 'Pastry',
-                'description' => 'Pastry'
-            ],
-            [
-                'code' => Helper::genCode('category'),
-                'name' => 'Noodle',
-                'description' => 'Noodle'
-            ],
-            [
-                'code' => Helper::genCode('category'),
-                'name' => 'Rice',
-                'description' => 'Rice'
-            ]
-            ];
+        ];
 
 
         foreach ($categories as $category) {
