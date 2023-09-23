@@ -34,7 +34,7 @@
                     Laporan pembelian
                 </span>
              
-                <table class="table striped hover border">
+                <table class="table striped hover border responsive-table">
                     <thead>
                         <th>
                         Invoice 

@@ -10,7 +10,7 @@
                     Pesanan terakhir
                 </span>
 
-                <table class="table">
+                <table class="table responsive-table">
                     <thead>
                         <th>
                         Invoice 

@@ -32,7 +32,7 @@
                     Laporan semua transaksi
                 </span>
 
-                <table class="table striped hover border">
+                <table class="table striped hover border responsive-table">
                     <thead>
                         <th>
                         Tanggal 
