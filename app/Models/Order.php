@@ -23,4 +23,9 @@ class Order extends Model
     {
         return $this->orderBy('id' , 'desc')->groupBy('invoice')->get();
     }
+
+    public function customer()
+    {
+        return $this->belongsTo(Customer::class , 'customer_id');
+    }
 }

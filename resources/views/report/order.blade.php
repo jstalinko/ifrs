@@ -58,7 +58,7 @@
                         @foreach($orders as $or)
                         <tr>
                             <td>
-                                <a href="/order/{{$or->invoice}}">{{$or->invoice}}</a>
+                                <a href="#{{$or->invoice}}">{{$or->invoice}}</a>
                             </td>
                             <td>
                                 

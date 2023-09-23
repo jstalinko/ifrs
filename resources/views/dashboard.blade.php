@@ -124,13 +124,13 @@
                                         Pesanan terakhir
                                     </span>
 
-                                    <table class="table">
+                                    <table class="table striped hover border">
                                         <thead>
                                             <th>
                                             Invoice 
                                             </th>   
                                             <th>
-                                            Produk
+                                            Produk detail
                                             </th> 
                                             <th>
                                             Pelanggan
@@ -149,26 +149,33 @@
                                             @foreach($recentorders as $or)
                                             <tr>
                                                 <td>
-                                                    <a href="/order/{{$or->invoice}}">{{$or->invoice}}</a>
+                                                    <a href="#">{{$or->invoice}}</a>
                                                 </td>
                                                 <td>
-                                                    {{$or->product?->name}}
+                                                    
+                                                    @php
+                                                        $products = \App\Models\Order::where('invoice', $or->invoice)->get();
+                                                    @endphp
+                                                    @foreach($products as $product)
+                                                    <li>{{$product->product?->name}} ({{$product->qty}})</li>
+                                                    @endforeach
+                                                    
                                                 </td>
                                                 <td>
                                                     {{$or->customer?->name ?? 'Pelanggan'}}
                                                 </td>
                                                 <td>
-                                                    {{$or->status}}
+                                                    {!! Helper::orderstatus($or->payment_status) !!}
                                                 </td>
                                                 <td>
-                                                    {{Helper::rupiah($or->total)}}
+                                                    {{Helper::rupiah($or->grand_total)}}
                                                 </td>
                                                 <td>
-                                                    {{$or->created_at->diffForHumans()}}
+                                                    {{$or->created_at}}
                                                 </td>
                                             </tr>
                                             @endforeach
-
+                    
                                         </tbody>
                                     </table>
                                 </div>

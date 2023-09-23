@@ -98,16 +98,7 @@ class ProductController extends Controller
 
     public function addProduct(Request $request)
     {
-        /**
-         *   $table->string('invoice');
-            $table->integer('customer_id')->nullable();
-            $table->integer('total');
-            $table->integer('discount')->nullable();
-            $table->integer('qty');
-            $table->integer('grand_total');
-            $table->enum('payment_status' , ['paid' , 'unpaid'])->default('unpaid');
-            $table->integer('product_id');
-         */
+        
         $invoice = Helper::genCode('invoice');
         $data=[];
         $success=0;
@@ -125,6 +116,10 @@ class ProductController extends Controller
             $product->product_id = $pro['product_id'];
             $product->save();
             $success++;
+
+            $p = Product::find($pro['product_id']);
+            $p->stock = $p->stock - $pro['qty'];
+            $p->save();
         }
 
         return json_encode(
