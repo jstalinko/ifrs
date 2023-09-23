@@ -88,7 +88,7 @@
                             </a>
                         </section>
                         <div class="header-title col s3 m3">      
-                            <span class="chapter-title">{{env('APP_NAME')}}</span>
+                            <span class="chapter-title">ANOMKINASIH</span>
                         </div>
                        
                        
