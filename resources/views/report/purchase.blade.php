@@ -22,7 +22,7 @@
                 </div>
                 <div class="col m3">
                     <button role="button" type="submit"  class="waves-effect waves-light btn m-b-lg">Filter</button>
-                    <a href="/report/print?type=purchase" class="waves-effect waves-light btn red m-b-lg">Print PDF</a>
+                    <a href="/report/print?type=purchase&from={{Request::get('from')}}&to={{Request::get('to')}}" class="waves-effect waves-light btn red m-b-lg">Print PDF</a>
 
                     
                 </div>
