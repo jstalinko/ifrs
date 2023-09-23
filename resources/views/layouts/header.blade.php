@@ -439,16 +439,16 @@
                     </div>
                     <div class="sidebar-account-settings">
                         <ul>
-                            <li class="no-padding">
+                            {{-- <li class="no-padding">
                                 <a class="waves-effect waves-grey"><i class="material-icons">person</i>Profile</a>
                             </li>
                             <li class="no-padding">
                                 <a class="waves-effect waves-grey"><i class="material-icons">settings</i>Settings</a>
-                            </li>
+                            </li> --}}
                          
                             <li class="divider"></li>
                             <li class="no-padding">
-                                <a class="waves-effect waves-grey"><i class="material-icons">exit_to_app</i>Sign Out</a>
+                                <a class="waves-effect waves-grey" href="/logout"><i class="material-icons">exit_to_app</i>Sign Out</a>
                             </li>
                         </ul>
                     </div>

@@ -25,6 +25,7 @@ use App\Http\Controllers\ReportController;
 Route::redirect('/', '/dashboard');
 Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/login', [AuthController::class, 'authLogin'])->name('auth.login');
+Route::get('/logout' , [AuthController::class , 'logout'])->name('auth.logout');
 
 Route::group(['middleware' => 'auth'], function () {
 

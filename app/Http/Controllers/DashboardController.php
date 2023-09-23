@@ -22,7 +22,7 @@ class DashboardController extends Controller
         $data['pengeluaran_thismonth'] = Purchase::where('payment_status' , 'paid')->whereMonth('created_at' , date('m'))->sum('total');
         $data['laba_thismonth'] = ($data['omset_thismonth'] - $data['pengeluaran_thismonth']);
         
-        $data['recentorders'] = Order::orderBy('id','desc')->take(10)->get();
+        $data['recentorders'] = Order::where('payment_status','paid')->orderBy('id','desc')->groupBy('invoice')->take(10)->get();
         return view('dashboard' , $data);
     }
 

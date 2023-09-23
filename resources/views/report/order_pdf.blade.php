@@ -45,7 +45,7 @@
                         
                     </td>
                     <td>
-                        {{$or->customer?->name ?? 'Pelanggan'}}
+                        {{$or->customer?->customer_name ?? 'Pelanggan'}}
                     </td>
                     <td>
                         {!! Helper::orderstatus($or->payment_status) !!}
