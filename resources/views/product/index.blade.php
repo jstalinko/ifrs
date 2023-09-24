@@ -37,9 +37,13 @@
                                 </td>
                                 <td>{{$pro->category?->name}}</td>
                                 <td>
+                                    @if(count(json_decode($pro->supplier_id)) < 1)
+                                        <b> Non-Supplier </b>
+                                    @else
                                     @foreach(json_decode($pro->supplier_id) as $sup)
                                     <b> {{$sup}}</b> /
                                     @endforeach
+                                    @endif
                                 </td>
                                 <td>
                                     {{$pro->name}}

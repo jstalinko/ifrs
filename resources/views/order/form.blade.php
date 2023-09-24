@@ -39,19 +39,21 @@
                                 </tr>
                             </template>
                         </tbody>
-                        <tfoot>
-                            <tr style="background:#333;color:#eee">
-                                <td colspan="3" style="text-align: right;><span class="right-align"> Grand Total</span></td>
-                                <td>
-                                    <span x-text="grandtotal()"></span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td colspan="4" style="text-align: right;">
-                                    <a href="#submit" role="button" type="button"  class="waves-effect waves-light btn modal-trigger" >Buat penjualan</a>
-                                </td>
-                            </tr>
-                        </tfoot>
+                        
+                    </table>
+
+                    <table>
+                        <tr style="background:#333;color:#eee">
+                            <td colspan="3" style="text-align: right;><span class="right-align"> Grand Total</span></td>
+                            <td>
+                                <span x-text="grandtotal()"></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="4" style="text-align: right;">
+                                <a href="#submit" role="button" type="button"  class="waves-effect waves-light btn modal-trigger" >Buat penjualan</a>
+                            </td>
+                        </tr>
                     </table>
 
                 </form>
